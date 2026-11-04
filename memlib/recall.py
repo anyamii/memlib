@@ -8,6 +8,7 @@ from difflib import SequenceMatcher
 from .deadline import Deadline
 from .index import cosine, rrf
 from .gate import Gate, features
+from .keyterm import KeytermGate
 
 @dataclass
 class Options:
@@ -32,6 +33,7 @@ class Options:
     parent_cap: bool = True
     budget: bool = True
     gate: Gate = field(default_factory=Gate)
+    keyterm_gate: KeytermGate | None = None
 
     def __post_init__(self):
         if self.gate.enabled and not self.keyword:
@@ -192,6 +194,18 @@ class Recall:
                 pack.append(entry)
                 chars += len(body)
             checkpoint('8_budget',len(pack))
+            if o.keyterm_gate is not None:
+                # The gate sees full original fragments belonging to final Pack
+                # entries, even when the delivery budget truncated their text.
+                delivered = {(entry['ns'], entry['id']) for entry in pack}
+                originals = [body for r, body in capped if (r['ns'], r['id']) in delivered]
+                key_features = o.keyterm_gate.features(text, originals)
+                reason = o.keyterm_gate.reason(key_features)
+                debug['keyterm'] = key_features
+                debug['keyterm_reason'] = reason
+                checkpoint('keyterm_gate', len(pack))
+                if reason:
+                    pack = []
             debug['retrieved'] = len(ranked)
             debug['delivered'] = len(pack)
             return {'items':pack,'debug':debug}

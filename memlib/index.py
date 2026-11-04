@@ -75,16 +75,24 @@ class EnglishTokenizer:
 
 class JiebaTokenizer:
     version = "jieba-0.42.1-default-hmm-false+english-v1"
-    def __init__(self):
+    def __init__(self, user_dictionary=None, hmm=False):
         import importlib.metadata
         import jieba
         if importlib.metadata.version('jieba') != '0.42.1':
             raise ValueError('jieba version mismatch')
         self.engine = jieba.Tokenizer()
+        self.hmm = hmm
+        if user_dictionary is not None:
+            from pathlib import Path
+            data = Path(user_dictionary).read_bytes()
+            self.engine.load_userdict(str(user_dictionary))
+            self.version += ':dict-sha256=' + hashlib.sha256(data).hexdigest()
+        if hmm:
+            self.version += ':hmm-true'
     def tokens(self, text):
         result = []
         for run in re.findall(r"[\u3400-\u9fff]+|[a-z0-9]+", text.lower()):
-            result.extend(self.engine.cut(run, HMM=False))
+            result.extend(self.engine.cut(run, HMM=self.hmm))
         return result
 
 MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
