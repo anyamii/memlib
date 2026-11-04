@@ -113,7 +113,7 @@ BGE 可选实验使用 `BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181`，
 
 自有代码采用 [MIT](LICENSE)；LoCoMo 为 CC BY-NC 4.0，bge-m3、jieba 为 MIT，MiniLM 模型为 Apache-2.0，各自许可独立，不由本库MIT覆盖。
 
-产品演示见 [Valelin](https://github.com/OWNER/valelin)（待建仓后替换 OWNER）。Valelin 演示交互流程，当前没有接入 memlib；本项目的离线指标不代表该前端的在线效果。
+产品演示见 [Valelin](https://github.com/anyamii/valelin)。Valelin 演示交互流程，当前没有接入 memlib；本项目的离线指标不代表该前端的在线效果。
 
 ## 结果依据
 
