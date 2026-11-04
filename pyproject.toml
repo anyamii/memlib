@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "memlib"
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "Offline synthetic memory retrieval skeleton"
+[project.optional-dependencies]
+models = ["jieba==0.42.1", "sentence-transformers==5.1.2", "setuptools==78.1.0"]
+
+[project.scripts]
+memlib = "memlib.cli:main"
+[tool.setuptools.packages.find]
+include = ["memlib*", "adapters*", "eval*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

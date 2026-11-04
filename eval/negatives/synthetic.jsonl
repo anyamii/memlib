@@ -1,0 +1,30 @@
+{"qid": "synthetic-00", "query": "你好呀", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-01", "query": "早上好", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-02", "query": "晚上好", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-03", "query": "今天辛苦了", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-04", "query": "我去喝杯水", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-05", "query": "哈哈哈", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-06", "query": "晚安", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-07", "query": "让我歇一会儿", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-08", "query": "外面阳光真好", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-09", "query": "谢谢你", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-10", "query": "我先去忙了", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-11", "query": "今天也加油", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-12", "query": "嗯嗯", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-13", "query": "我去洗个脸", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-14", "query": "咱们随便聊聊", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-15", "query": "Hello there", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-16", "query": "Good morning", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-17", "query": "Good night", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-18", "query": "Thanks a lot", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-19", "query": "Have a nice day", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-20", "query": "I need a little break", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-21", "query": "Haha that is funny", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-22", "query": "I am getting some water", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-23", "query": "See you later", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-24", "query": "How is it going", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-25", "query": "Let us just chat", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-26", "query": "It is a sunny day", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-27", "query": "I am back", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-28", "query": "Okay sounds good", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
+{"qid": "synthetic-29", "query": "Take care", "asked_at": "2024-01-01T00:00:00+00:00", "should_surface": false, "type": "synthetic-chitchat"}
