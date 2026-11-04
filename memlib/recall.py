@@ -1,5 +1,5 @@
 """Ordered, switchable recall stages with independent keyword and vector lanes."""
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 import json
 import time
@@ -7,6 +7,7 @@ import re
 from difflib import SequenceMatcher
 from .deadline import Deadline
 from .index import cosine, rrf
+from .gate import Gate, features
 
 @dataclass
 class Options:
@@ -30,8 +31,11 @@ class Options:
     post_tombstone: bool = True
     parent_cap: bool = True
     budget: bool = True
+    gate: Gate = field(default_factory=Gate)
 
     def __post_init__(self):
+        if self.gate.enabled and not self.keyword:
+            raise ValueError('BM25 gate requires keyword lane')
         if self.vector_min_score is not None and not -1 <= self.vector_min_score <= 1:
             raise ValueError('invalid vector minimum score')
         if not 0 <= self.near_duplicate_threshold <= 1:
@@ -81,6 +85,14 @@ class Recall:
                 lane = [(r['rowid'],-r['score']) for r in hits if r['rowid'] in items][:o.n]
                 lanes.append([key for key,_ in lane])
                 debug['lanes']['keyword'] = [{'key':key,'id':items[key]['id'],'rank':i,'score':score} for i,(key,score) in enumerate(lane,1)]
+                if o.gate.enabled:
+                    s1, f = features(s.db, tokens, lane)
+                    reason = o.gate.reason(s1, f, bool(lane))
+                    debug.update(gate_reason=reason, S1=s1, F=f)
+                    checkpoint('gate', len(lane))
+                    if reason:
+                        debug['delivered'] = 0
+                        return {'items': [], 'debug': debug}
             if o.vector:
                 q = self.encoder_deadline.call(lambda: s.embedder.encode([text]), start + o.timeout_seconds)[0]
                 lane = []
