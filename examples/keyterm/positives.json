@@ -1,0 +1,34 @@
+[
+  {
+    "group": 0,
+    "query": "星砂",
+    "gold": [
+      "g0-0"
+    ],
+    "domain": "synthetic"
+  },
+  {
+    "group": 0,
+    "query": "银狐",
+    "gold": [
+      "g0-1"
+    ],
+    "domain": "synthetic"
+  },
+  {
+    "group": 1,
+    "query": "星砂",
+    "gold": [
+      "g1-0"
+    ],
+    "domain": "synthetic"
+  },
+  {
+    "group": 1,
+    "query": "银狐",
+    "gold": [
+      "g1-1"
+    ],
+    "domain": "synthetic"
+  }
+]

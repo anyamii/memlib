@@ -1,0 +1,22 @@
+[
+  {
+    "group": 0,
+    "query": "海底咖啡",
+    "negative_type": "unseen"
+  },
+  {
+    "group": 0,
+    "query": "今天天气很好",
+    "negative_type": "chat"
+  },
+  {
+    "group": 1,
+    "query": "海底咖啡",
+    "negative_type": "unseen"
+  },
+  {
+    "group": 1,
+    "query": "今天天气很好",
+    "negative_type": "chat"
+  }
+]
