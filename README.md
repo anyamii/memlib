@@ -1,13 +1,15 @@
 # memlib
 
-memlib is an offline memory retrieval experiment for long-running companion conversations. It compares lexical and dense retrieval, evaluates when to return an empty memory pack, and reports both gains and failures. Public P2/P3 LoCoMo retrieval code and protocols are included; private Chinese evaluations publish aggregate metrics only. This is a retrieval study, not a production system or an end-to-end QA benchmark.
+memlib is an offline memory retrieval study for long-running companion conversations, comparing lexical and dense retrieval and when to return an empty memory pack. Public P2/P3 LoCoMo code and protocols are included; private Chinese evaluations report aggregate results and limitations. Real-conversation shadow runs exposed intent and retrieval failures; this is not a production system or an end-to-end QA benchmark.
 
 ## 主要发现 / Key findings
 
-- **英文卷和自家中文题给出了相反结论。** 公开英文卷上，向量检索前五条的证据覆盖率约14%，不如关键词的43%；自家中文同义改写题上，前五条命中率反过来是65%对5%，但两套评分口径不同，不能直接比较分数高低。
-- **拒答门能减少闲聊时乱塞记忆。** 在原来的60条合成闲聊题上，非空记忆包比例从约97%降到10%；后来扩展题集暴露了更高的误出，不能把这个成绩当作线上保证。
-- **合成题上的好成绩没有在真实对话中成立。** 意图分类器在合成题全卷诊断中漏判6.67%；冻结它去影子跑1500条真实消息，最终只开门16次，其中只有3次的记忆直接有用（另4次部分有用），这与合成召回指标的分母不同。
-- **这份真实对话样本中，长期记忆需求不到1%，当天上下文需求约28%。** 简单随机392条中，长期需求3条（约0.8%），当天需求110条；下一步应把当天内容交给最近对话窗口、长期记忆改为按需调用，并单独改善检索，因为新一轮开门且确需长期记忆的29条中仅4条获得直接相关记忆，且随机样本的长期正例很少。
+- **公开基准和自家数据结论相反。** 英文卷上关键词赢（R@5 43% 对向量 14%），中文同义改写题上向量赢（65% 对 5%）。
+- **拒答门能挡住闲聊时乱塞记忆。** 原60条合成闲聊题上，非空记忆包从约97%降到10%。
+- **合成题集上的好成绩在真实对话里不成立。** 意图分类器合成题漏判6.67%；真实消息影子跑1500句只开门16次，3次记忆直接有用。
+- **这份真实对话样本中，长期记忆需求不到1%，当天上下文需求约28%。** 应把当天内容交给最近对话窗口、长期记忆改为按需调用。
+
+各项统计口径、扩展题集失败、小样本及标注限制见下方评测部分。
 
 给长期陪伴对话用的离线记忆检索实验：**该想起时想起，没有就别乱给**。输入当前一句话，返回有来源、有限预算的 Memory Pack，或空包。
 
